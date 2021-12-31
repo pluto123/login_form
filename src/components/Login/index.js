@@ -9,7 +9,7 @@ const Login=()=>{
         margin: '20px auto'
     }
     return (
-        <Grid>
+        <Grid align='center'> {/* 將物件置中 */}
             <Paper 
                 elevation={10} // 讓此組件隆起，產生陰影效果
                 style={paperStyle} // 設定 Paper 組件樣式
