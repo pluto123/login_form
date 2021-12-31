@@ -8,13 +8,16 @@ const Login=()=>{
         width: 200,
         margin: '20px auto'
     }
+    const avatarStyle = {
+        backgroundColor: 'green'
+    }
     return (
         <Grid align='center'> {/* 將物件置中 */}
             <Paper 
                 elevation={10} // 讓此組件隆起，產生陰影效果
                 style={paperStyle} // 設定 Paper 組件樣式
             >
-                <Avatar><LockOutlinedIcon /></Avatar>
+                <Avatar style={avatarStyle}><LockOutlinedIcon /></Avatar>
                 <h2>Sign in</h2>
             </Paper>
         </Grid>
