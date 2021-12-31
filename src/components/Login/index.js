@@ -1,4 +1,5 @@
-import { Grid, Paper } from '@material-ui/core'
+import { Grid, Paper, Avatar } from '@material-ui/core'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const Login=()=>{
     const paperStyle = {
@@ -13,7 +14,8 @@ const Login=()=>{
                 elevation={10} // 讓此組件隆起，產生陰影效果
                 style={paperStyle} // 設定 Paper 組件樣式
             >
-                Sign in
+                <Avatar><LockOutlinedIcon /></Avatar>
+                <h2>Sign in</h2>
             </Paper>
         </Grid>
     )
