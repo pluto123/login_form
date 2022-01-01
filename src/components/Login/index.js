@@ -1,11 +1,11 @@
-import { Grid, Paper, Avatar, TextField, Checkbox, FormControlLabel } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Checkbox, FormControlLabel, Button, Link, Typography } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const Login=()=>{
     const paperStyle = {
         padding: 20, 
         height: '70vh',
-        width: 200,
+        width: 300,
         margin: '20px auto'
     }
     const avatarStyle = {
@@ -32,6 +32,17 @@ const Login=()=>{
                     }
                     label="Remember me"
                 />
+                <Button type='submit' color='primary' fullWidth variant='contained'>Sign in</Button>
+                <Typography >
+                    <Link href="#">
+                        Forget password ?
+                    </Link>
+                </Typography>
+                <Typography > Do you have an account ?
+                    <Link href="#">
+                        Sign Up
+                    </Link>
+                </Typography>
             </Paper>
         </Grid>
     )
