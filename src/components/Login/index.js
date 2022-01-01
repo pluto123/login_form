@@ -1,4 +1,4 @@
-import { Grid, Paper, Avatar, TextField } from '@material-ui/core'
+import { Grid, Paper, Avatar, TextField, Checkbox, FormControlLabel } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const Login=()=>{
@@ -23,6 +23,15 @@ const Login=()=>{
                 </Grid>
                 <TextField label='Username' placeholder='Enter username' fullWidth required/>
                 <TextField label='Password' placeholder='Enter password' type='password' fullWidth required/>
+                <FormControlLabel
+                    control={
+                    <Checkbox
+                        name="checkedB"
+                        color="primary"
+                    />
+                    }
+                    label="Remember me"
+                />
             </Paper>
         </Grid>
     )
