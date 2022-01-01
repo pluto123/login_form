@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Paper, Avatar, TextField, Checkbox, FormControlLabel, Button, Link, Typography } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
-const Login=()=>{
+const Login=({handleChange})=>{
     const paperStyle = {
         padding: 20, 
         height: '70vh',
@@ -45,7 +45,7 @@ const Login=()=>{
                     </Link>
                 </Typography>
                 <Typography > Do you have an account ?
-                    <Link href="#">
+                    <Link href="#" onClick={()=>handleChange("event", 1)}>
                         Sign Up
                     </Link>
                 </Typography>
