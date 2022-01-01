@@ -11,6 +11,9 @@ const Login=()=>{
     const avatarStyle = {
         backgroundColor: 'green'
     }
+    const styleButton = {
+        margin: '8px auto'
+    }
     return (
         <Grid>
             <Paper 
@@ -32,7 +35,7 @@ const Login=()=>{
                     }
                     label="Remember me"
                 />
-                <Button type='submit' color='primary' fullWidth variant='contained'>Sign in</Button>
+                <Button type='submit' color='primary' fullWidth variant='contained' style={styleButton}>Sign in</Button>
                 <Typography >
                     <Link href="#">
                         Forget password ?
