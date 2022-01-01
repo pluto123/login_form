@@ -32,6 +32,9 @@ const SignUp = () => {
         confirmPassword: '',
         termsAndConditions: false
     }
+    const onSubmit = (values, props) => (
+        console.log(values)
+    )
     return (
         <Grid>
             <Paper
@@ -42,7 +45,7 @@ const SignUp = () => {
                     <h2 style={styleHeader}>Sign up</h2>
                     <Typography variant='caption'>Please fill this form to create an account !</Typography>
                 </Grid>
-                <Formik initialValues={initialValues}>
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
                     {(props) => (
                         <Form>
                             <Field as={TextField} name='name' label='Name' placeholder='Enter your name' fullWidth required />
