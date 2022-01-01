@@ -45,21 +45,21 @@ const SignUp = () => {
                 <Formik initialValues={initialValues}>
                     {(props) => (
                         <Form>
-                            <TextField name='name' label='Name' placeholder='Enter your name' fullWidth required />
-                            <TextField name='email' label='Email' placeholder='Enter your e-mail' fullWidth required />
+                            <Field as={TextField} name='name' label='Name' placeholder='Enter your name' fullWidth required />
+                            <Field as={TextField} name='email' label='Email' placeholder='Enter your e-mail' fullWidth required />
                             <FormControl component="fieldset" style={marginTop}>
                                 <FormLabel component="legend">Gender</FormLabel>
-                                <RadioGroup aria-label="gender" name='gender' style={{ display: 'initial' }}>
+                                <Field as={RadioGroup} aria-label="gender" name='gender' style={{ display: 'initial' }}>
                                     <FormControlLabel value="female" control={<Radio />} label="Female" />
                                     <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                </RadioGroup>
+                                </Field>
                             </FormControl>
-                            <TextField name='phoneNumber' label='Phone Number' placeholder='Enter phone number' fullWidth required />
-                            <TextField name='password' label='Password' placeholder='Enter password' fullWidth required />
-                            <TextField name='confirmPassword' label='Confirm Password' placeholder='Comfirm password' fullWidth required />
+                            <Field as={TextField} name='phoneNumber' label='Phone Number' placeholder='Enter phone number' fullWidth required />
+                            <Field as={TextField} name='password' label='Password' placeholder='Enter password' fullWidth required />
+                            <Field as={TextField} name='confirmPassword' label='Confirm Password' placeholder='Comfirm password' fullWidth required />
                             <FormControlLabel
                                 control={
-                                    <Checkbox
+                                    <Field as={Checkbox}
                                         name="termsAndConditions"
                                         color="primary"
                                     />
