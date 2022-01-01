@@ -1,3 +1,4 @@
+import React from 'react';
 import { Grid, Paper, Avatar, Typography, TextField, Checkbox, Button } from '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@material-ui/core';
@@ -7,7 +8,7 @@ const SignUp=()=>{
         padding: 20, 
         height: '70vh',
         width: 300,
-        margin: '20px auto'
+        margin: '0px auto'
     }
     const avatarStyle = {
         backgroundColor: 'green'
@@ -19,12 +20,11 @@ const SignUp=()=>{
         margin: '8px auto'
     }
     const styleHeader = {
-        margin: 10
+        margin: 0
     }
     return (
         <Grid>
             <Paper 
-                elevation={20}
                 style={paperStyle}
             >
                 <Grid align='center'>

@@ -1,11 +1,10 @@
-import Login from './components/Login';
-import SignUp from './components/SingUp';
+import React from 'react';
+import SignInOutContainer from './containers/SignInOutContainer';
 
 function App() {
   return (
     <div className="App">
-      {/* <Login /> */}
-      <SignUp />
+      <SignInOutContainer />
     </div>
   );
 }
