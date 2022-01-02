@@ -65,7 +65,7 @@ const SignUp = () => {
                             <Field as={TextField} name='name' label='Name' 
                                 placeholder='Enter your name' fullWidth required />
                             <ErrorMessage name='name'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
-                            <Field as={TextField} name='email' label='Email' placeholder='Enter your e-mail' fullWidth required />
+                            <Field as={TextField} name='email' label='Email' placeholder='Enter your e-mail' fullWidth />
                             <ErrorMessage name='email'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <FormControl component="fieldset" style={marginTop}>
                                 <FormLabel component="legend">Gender</FormLabel>
@@ -77,11 +77,11 @@ const SignUp = () => {
                             <FormHelperText>
                                 <ErrorMessage name='gender'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             </FormHelperText>
-                            <Field as={TextField} name='phoneNumber' label='Phone Number' placeholder='Enter phone number' fullWidth required />
+                            <Field as={TextField} name='phoneNumber' label='Phone Number' placeholder='Enter phone number' fullWidth />
                             <ErrorMessage name='phoneNumber'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
-                            <Field as={TextField} name='password' label='Password' type="password" placeholder='Enter password' fullWidth required />
+                            <Field as={TextField} name='password' label='Password' type="password" placeholder='Enter password' fullWidth />
                             <ErrorMessage name='password'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
-                            <Field as={TextField} name='confirmPassword' label='Confirm Password' type="password" placeholder='Comfirm password' fullWidth required />
+                            <Field as={TextField} name='confirmPassword' label='Confirm Password' type="password" placeholder='Comfirm password' fullWidth />
                             <ErrorMessage name='confirmPassword'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <FormControlLabel
                                 control={
