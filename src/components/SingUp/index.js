@@ -42,9 +42,13 @@ const SignUp = () => {
         confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password not matched").required("Required"),
         termsAndConditions: Yup.string().oneOf(["true"], "Accept terms & conditions")
     })
-    const onSubmit = (values, props) => (
+    const onSubmit = (values, props) => {
         console.log(values)
-    )
+        setTimeout(()=>{
+             props.resetForm()
+             props.setSubmitting(false)
+        }, 2000)
+    }
     return (
         <Grid>
             <Paper
@@ -91,7 +95,10 @@ const SignUp = () => {
                             <FormHelperText>
                                 <ErrorMessage name='termsAndConditions'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             </FormHelperText>
-                            <Button type='submit' color='primary' variant='contained' style={styleButton}>Sign up</Button>
+                            <Button type='submit' color='primary' variant='contained' 
+                                disabled={props.isSubmitting} style={styleButton}>
+                                    {props.isSubmitting?"Loading":"Sign up"}
+                            </Button>
                         </Form>
                     )}
                 </Formik>
