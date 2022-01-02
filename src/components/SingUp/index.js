@@ -2,7 +2,8 @@ import React from 'react';
 import { Grid, Paper, Avatar, Typography, TextField, Checkbox, Button } from '@material-ui/core';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@material-ui/core';
-import { Formik, Field, Form } from 'formik'
+import { Formik, Field, Form, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 
 const SignUp = () => {
     const paperStyle = {
@@ -32,6 +33,10 @@ const SignUp = () => {
         confirmPassword: '',
         termsAndConditions: false
     }
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().min(3, "It's too short").required("Required")
+
+    })
     const onSubmit = (values, props) => (
         console.log(values)
     )
@@ -45,10 +50,12 @@ const SignUp = () => {
                     <h2 style={styleHeader}>Sign up</h2>
                     <Typography variant='caption'>Please fill this form to create an account !</Typography>
                 </Grid>
-                <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <Form>
-                            <Field as={TextField} name='name' label='Name' placeholder='Enter your name' fullWidth required />
+                            <Field as={TextField} name='name' label='Name' 
+                                placeholder='Enter your name' fullWidth required />
+                            <ErrorMessage name='name'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <Field as={TextField} name='email' label='Email' placeholder='Enter your e-mail' fullWidth required />
                             <FormControl component="fieldset" style={marginTop}>
                                 <FormLabel component="legend">Gender</FormLabel>
