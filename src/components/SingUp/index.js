@@ -39,7 +39,8 @@ const SignUp = () => {
         gender: Yup.string().oneOf(["male", "female"], "Required").required("Required"),
         phoneNumber: Yup.number().typeError("Enter valid Phone Number").required("Required"),
         password: Yup.string().min(8, "Password minimue length should be 8").required("Required"),
-        confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password not matched").required("Required")
+        confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password not matched").required("Required"),
+        termsAndConditions: Yup.string().oneOf(["true"], "Accept terms & conditions")
     })
     const onSubmit = (values, props) => (
         console.log(values)
@@ -87,6 +88,9 @@ const SignUp = () => {
                                 }
                                 label="I accept the terms and conditions."
                             />
+                            <FormHelperText>
+                                <ErrorMessage name='termsAndConditions'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
+                            </FormHelperText>
                             <Button type='submit' color='primary' variant='contained' style={styleButton}>Sign up</Button>
                         </Form>
                     )}
