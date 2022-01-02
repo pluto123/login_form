@@ -34,8 +34,11 @@ const SignUp = () => {
         termsAndConditions: false
     }
     const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, "It's too short").required("Required")
-
+        name: Yup.string().min(3, "It's too short").required("Required"),
+        email: Yup.string().email("Enter valid email").required("Required"),
+        phoneNumber: Yup.number().typeError("Enter valid Phone Number").required("Required"),
+        password: Yup.string().min(8, "Password minimue length should be 8").required("Required"),
+        confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password not matched").required("Required")
     })
     const onSubmit = (values, props) => (
         console.log(values)
@@ -57,6 +60,7 @@ const SignUp = () => {
                                 placeholder='Enter your name' fullWidth required />
                             <ErrorMessage name='name'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <Field as={TextField} name='email' label='Email' placeholder='Enter your e-mail' fullWidth required />
+                            <ErrorMessage name='email'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <FormControl component="fieldset" style={marginTop}>
                                 <FormLabel component="legend">Gender</FormLabel>
                                 <Field as={RadioGroup} aria-label="gender" name='gender' style={{ display: 'initial' }}>
@@ -65,8 +69,11 @@ const SignUp = () => {
                                 </Field>
                             </FormControl>
                             <Field as={TextField} name='phoneNumber' label='Phone Number' placeholder='Enter phone number' fullWidth required />
+                            <ErrorMessage name='phoneNumber'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <Field as={TextField} name='password' label='Password' placeholder='Enter password' fullWidth required />
+                            <ErrorMessage name='password'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <Field as={TextField} name='confirmPassword' label='Confirm Password' placeholder='Comfirm password' fullWidth required />
+                            <ErrorMessage name='confirmPassword'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <FormControlLabel
                                 control={
                                     <Field as={Checkbox}
