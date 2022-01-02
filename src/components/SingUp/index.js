@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Paper, Avatar, Typography, TextField, Checkbox, Button } from '@material-ui/core';
+import { Grid, Paper, Avatar, Typography, TextField, Checkbox, Button, FormHelperText } from '@material-ui/core';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@material-ui/core';
 import { Formik, Field, Form, ErrorMessage } from 'formik'
@@ -36,6 +36,7 @@ const SignUp = () => {
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "It's too short").required("Required"),
         email: Yup.string().email("Enter valid email").required("Required"),
+        gender: Yup.string().oneOf(["male", "female"], "Required").required("Required"),
         phoneNumber: Yup.number().typeError("Enter valid Phone Number").required("Required"),
         password: Yup.string().min(8, "Password minimue length should be 8").required("Required"),
         confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password not matched").required("Required")
@@ -68,11 +69,14 @@ const SignUp = () => {
                                     <FormControlLabel value="male" control={<Radio />} label="Male" />
                                 </Field>
                             </FormControl>
+                            <FormHelperText>
+                                <ErrorMessage name='gender'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
+                            </FormHelperText>
                             <Field as={TextField} name='phoneNumber' label='Phone Number' placeholder='Enter phone number' fullWidth required />
                             <ErrorMessage name='phoneNumber'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
-                            <Field as={TextField} name='password' label='Password' placeholder='Enter password' fullWidth required />
+                            <Field as={TextField} name='password' label='Password' type="password" placeholder='Enter password' fullWidth required />
                             <ErrorMessage name='password'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
-                            <Field as={TextField} name='confirmPassword' label='Confirm Password' placeholder='Comfirm password' fullWidth required />
+                            <Field as={TextField} name='confirmPassword' label='Confirm Password' type="password" placeholder='Comfirm password' fullWidth required />
                             <ErrorMessage name='confirmPassword'>{ msg => <div style={{ color: 'red' }}>{msg}</div> }</ErrorMessage>
                             <FormControlLabel
                                 control={
